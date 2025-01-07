@@ -1,19 +1,24 @@
 #container {
-     /* تصغير العرض إلى 80% من عرض الشاشة */
-    max-width: 600px; /* أقصى عرض */
-    height: auto; /* الطول يعتمد على المحتوى */
-    margin: 0 auto; /* توسيط العنصر أفقيًا */
-    padding: 20px; /* إضافة مسافة داخلية */
-    background-color: #f8f9fa; /* لون خلفية خفيف */
-    border: 1px solid #ddd; /* إطار خفيف */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل خفيف لجعل التصميم جذابًا */
-  }
-  
-
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto; 
+    padding: 20px; 
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 #ordersContainer {
     width: 80%;
     padding: 10px;
     margin: 0 auto;
     background-color: #f9f9f9;
-  }
-  
+}
+#divCard {
+    border: 2px solid #d3d3d3;
+    border-radius: 6px;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+.img-fluid {
+    margin: auto;
+}
