@@ -29,32 +29,35 @@ function Customer(fullName, password, dob, gender, orderTypes, orderOption, imag
    
     const imageUrl = "./assets/img1.jpg";
    
-    const newCustomer = new Customer(
-      fullName,
-      password,
-      dob,
-      gender,
-      orderTypes,
-      orderOption,
-      imageUrl,
-      phone
-    );
+    let customerOrders = JSON.parse(localStorage.getItem("Customer Orders")) || [];
+
+   const newCustomer = new Customer(
+    fullName,
+    password,
+    dob,
+    gender,
+    orderTypes,
+    orderOption,
+    imageUrl,
+    phone
+  );
+
+  customerOrders.push(newCustomer);
+  localStorage.setItem("Customer Orders", JSON.stringify(customerOrders));
   
+    render();
     
-    let customerOrders = [];
-    customerOrders.push(newCustomer);
-    localStorage.setItem("Customer Orders", JSON.stringify(customerOrders));
-  
-    // Render Orders
-    render(customerOrders);
   });
   
-  // Render Function
-  function render(customers) {
+  
+  function render() {
     const ordersContainer = document.getElementById("ordersContainer");
+    ordersContainer.innerHTML = "";
+    const customers = JSON.parse(localStorage.getItem("Customer Orders")); 
     for (let i = 0; i < customers.length; i++) {
       const customer = customers[i]; 
-      const orderElement = document.getElementById("divCard");
+      const orderElement = document.createElement("divCard");
+      orderElement.className = "card mb-3";
       orderElement.innerHTML = `
         <div class="row g-0">
           <div class="col-md-4">
@@ -76,4 +79,4 @@ function Customer(fullName, password, dob, gender, orderTypes, orderOption, imag
       ordersContainer.appendChild(orderElement);
     }
   }
-  
+  document.addEventListener("DOMContentLoaded", render);
